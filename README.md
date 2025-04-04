@@ -1,14 +1,14 @@
-# SciLib - Scientific Libraries for Simulations
+# MTSU RENEW
 
-SciLib is a project that provides access to a collection of scientific computing libraries focused on quantum and classical simulations. The goal is to create a platform that makes it easy for researchers, students, and developers to download, explore, and integrate powerful libraries into their own work.
+MTSU RENEW is a project that provides access to a collection of scientific computing libraries focused on quantum many-body simulations. The goal is to create a platform that makes it easy for researchers, students, and developers to download, explore, and integrate powerful libraries into their own work.
 
-This repository hosts the website for SciLib, where users can access library releases, documentation, and get in touch with the project team.
+This repository hosts the website for MTSU RENEW, where users can access library releases, documentation, and get in touch with the project team.
 
 ---
 
 ## Features
 
-- **Download the Latest Release**: Get the most up-to-date version of the SciLib libraries for your projects.
+- **Download the Latest Release**: Get the most up-to-date version of the libraries for your projects.
 - **Documentation**: Access online and PDF versions of the detailed documentation for the libraries.
 - **Contact Form**: Reach out to the team with your inquiries via a simple contact form.
 
@@ -37,5 +37,5 @@ To set up the project locally, you can clone this repository and serve the files
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/scilib.github.io.git
-cd scilib.github.io
+git clone https://github.com/anirudha-mirmira/mtsu_renew.github.io.git
+cd mtsu_renew.github.io
