@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Download - SciLib</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <style>
+    body { padding-top: 60px; }
+    .navbar { background-color: #0066cc; }
+    .navbar-brand, .nav-link, .navbar-text { color: white !important; }
+    footer { background-color: #f8f9fa; padding: 1rem; text-align: center; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">SciLib</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="download.html">Download</a></li>
+          <li class="nav-item"><a class="nav-link" href="documentation.html">Documentation</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <section class="my-5">
+      <h1>Download</h1>
+      <p>Get the latest release of the SciLib libraries.</p>
+      <div id="release-info" class="mb-3">
+        <p>Loading latest release information...</p>
+      </div>
+      <a id="download-button" href="https://github.com/mtsu-quantum/qc_dmft" class="btn btn-primary" target="_blank">Download from GitHub</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SciLib Project. All rights reserved.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    fetch('https://api.github.com/repos/mtsu-quantum/qc_dmft/releases/latest')
+      .then(response => response.json())
+      .then(data => {
+        const info = `
+          <p><strong>Latest Release:</strong> ${data.name || data.tag_name}</p>
+          <p><strong>Published:</strong> ${new Date(data.published_at).toLocaleDateString()}</p>
+          <p>${data.body ? data.body.substring(0, 200) + '...' : ''}</p>
+        `;
+        document.getElementById('release-info').innerHTML = info;
+        if (data.assets && data.assets.length > 0) {
+          document.getElementById('download-button').href = data.assets[0].browser_download_url;
+          document.getElementById('download-button').innerText = 'Download ' + data.assets[0].name;
+        }
+      })
+      .catch(err => {
+        document.getElementById('release-info').innerHTML = '<p class="text-danger">Failed to load release info.</p>';
+      });
+  </script>
+</body>
+</html>
 
